@@ -24,7 +24,7 @@ postDirectives:
     workingDirectory: ""
 pre:
     - dotnet restore
-    - dotnet list HyperExecute/SeleniumInterview.csproj package > packages.txt
+    - dotnet list SeleniumInterview.csproj package > packages.txt
     - nuget locals all -clear
     - dotnet build -c Release
 preDirectives:
