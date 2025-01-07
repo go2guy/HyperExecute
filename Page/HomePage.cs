@@ -5,7 +5,7 @@ namespace SeleniumInterview.Page
     public class HomePage : BasePage
     {
         private readonly By _homePageLink = By.LinkText("Home Page Link");
-        public readonly By _checkBox = By.Id("checkboxes");
+        public readonly By _checkBox = By.Id("checkbox");
         public HomePage(IWebDriver driver) : base(driver)
         {
         }

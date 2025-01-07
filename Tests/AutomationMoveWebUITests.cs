@@ -17,7 +17,7 @@ namespace SeleniumInterview.Tests
         public void TestClickingHomePageLink()
         {
             _homePage.ClickHomePageLink();
-            Assert.That(_homePage.GetPageTitle(), Is.EqualTo("COURSES"));   
+            Assert.That(_homePage.GetPageTitle(), Is.EqualTo("Courses"));   
         }   
 
         [Test(Description = "Verify checkbox is enabled"), Order(2)]
