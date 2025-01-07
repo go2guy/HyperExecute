@@ -23,7 +23,7 @@ pre:
 testDiscovery:
   type: raw
   mode: dynamic
-  command: grep 'Category' Tests/AutomationMoveWebUITests -ir --include=\*.cs  | awk '{print$2}' | grep -o '".*"'
+  command: grep 'Category' Tests -ir --include=\*.cs  | awk '{print$2}' | grep -o '".*"'
 
 testRunnerCommand: dotnet test SeleniumInterview.sln --filter TestCategory=$tests
 
