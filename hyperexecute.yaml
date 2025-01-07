@@ -3,7 +3,7 @@ version: 0.1
 runson: win
 
 autosplit: true
-concurrency: 2
+concurrency: 1
 
 runtime:
   language: dotnet
