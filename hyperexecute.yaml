@@ -1,12 +1,13 @@
-
+---
 version: 0.1
 runson: win
+
 autosplit: true
-maxRetries: 1
 concurrency: 2
 
-project: SeleniumInterview.csproj
-solution: SeleniumInterview.sln
+runtime:
+  language: dotnet
+  version: "6.0"
 
 env:
   NUGET_PACKAGES: 'C:\nuget_global_cache'
@@ -14,17 +15,18 @@ env:
   NUGET_PLUGINS_CACHE_PATH: 'C:\nuget_plugins_cache'
 
 pre:
- # https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-list-package
- - dotnet list $project package > packages.txt
+ - dotnet restore
+ - dotnet list SeleniumInterview.csproj package > packages.txt
  - nuget locals all -clear
  - dotnet build -c Release
 
-mergeArtifacts: true
-
 testDiscovery:
   type: raw
-  mode: local
+  mode: dynamic
 
-testRunnerCommand: dotnet test $solution
+testRunnerCommand: dotnet test SeleniumInterview.sln 
 
-jobLabel: [selenium-Nunit, win, autosplit-simple]  
+retryOnFailure: true
+maxRetries: 1
+
+jobLabel: [selenium-Nunit, win, autosplit]  
