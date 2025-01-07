@@ -23,6 +23,7 @@ pre:
 testDiscovery:
   type: raw
   mode: dynamic
+  command: grep 'Category' SeleniumInterview -ir --include=\*.cs --exclude=DriverFactory.cs --exclude=SeleniumInterview.AssemblyInfo.cs | awk '{print$2}' | grep -o '".*"'
 
 testRunnerCommand: dotnet test SeleniumInterview.sln 
 
