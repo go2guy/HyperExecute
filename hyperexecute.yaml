@@ -1,0 +1,60 @@
+accessibilityJob: false
+alwaysRunPostSteps: false
+autosplit: true
+captureScreenRecordingForScenarios: false
+combineTasksInMatrixMode: false
+concurrency: 1
+cypress: false
+env:
+    NUGET_HTTP_CACHE_PATH: C:\nuget_http_cache
+    NUGET_PACKAGES: C:\nuget_global_cache
+    NUGET_PLUGINS_CACHE_PATH: C:\nuget_plugins_cache
+errorCategorizedOnFailureOnly: false
+jobID: 725518ea-6f30-4b2a-95d0-3715b0256cd8
+jobLabel:
+    - selenium-Nunit
+    - win
+    - autosplit
+key: ""
+maxRetries: 1
+maxRetriesPreSteps: 0
+postDirectives:
+    commands: []
+    shell: ""
+    workingDirectory: ""
+pre:
+    - dotnet restore
+    - dotnet list HyperExecute/SeleniumInterview.csproj package > packages.txt
+    - nuget locals all -clear
+    - dotnet build -c Release
+preDirectives:
+    commands: []
+    maxRetries: 0
+    shell: ""
+    workingDirectory: ""
+project:
+    id: ""
+    name: ""
+    type: ""
+quickRunMode: true
+retryOnFailure: true
+runson: win
+runtime:
+    language: dotnet
+    version: "6.0"
+sourcePayload:
+    link: https://github.com/go2guy/HyperExecute.git
+    platform: git
+    ref: main
+testDiscovery:
+    command: grep 'Category' SeleniumInterview -ir --include=\*.cs --exclude=DriverFactory.cs --exclude=SeleniumInterview.AssemblyInfo.cs | awk '{print$2}' | grep -o '".*"'
+    mode: dynamic
+    type: raw
+testRunnerCommand: dotnet test SeleniumInterview.sln --filter TestCategory=$test
+testSuiteTimeout: 90
+testSuites: []
+triggerMode: false
+unzipPayload: false
+user: ""
+version: "0.1"
+waitForArtefactsUpload: false
