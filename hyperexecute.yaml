@@ -2,7 +2,7 @@
 version: 0.1
 runson: win
 
-autosplit: true
+autosplit: false
 concurrency: 1
 
 runtime:
