@@ -1,59 +1,30 @@
-accessibilityJob: false
-alwaysRunPostSteps: false
-autosplit: true
-captureScreenRecordingForScenarios: false
-combineTasksInMatrixMode: false
-concurrency: 1
-cypress: false
-env:
-    NUGET_HTTP_CACHE_PATH: C:\nuget_http_cache
-    NUGET_PACKAGES: C:\nuget_global_cache
-    NUGET_PLUGINS_CACHE_PATH: C:\nuget_plugins_cache
-errorCategorizedOnFailureOnly: false
-jobID: 725518ea-6f30-4b2a-95d0-3715b0256cd8
-jobLabel:
-    - selenium-Nunit
-    - win
-    - autosplit
-key: ""
-maxRetries: 1
-maxRetriesPreSteps: 0
-postDirectives:
-    commands: []
-    shell: ""
-    workingDirectory: ""
-pre:
-    - dotnet restore
-    - dotnet list SeleniumInterview.csproj package > packages.txt
-    - nuget locals all -clear
-    - dotnet build -c Release
-preDirectives:
-    commands: []
-    maxRetries: 0
-    shell: ""
-    workingDirectory: ""
-project:
-    id: ""
-    name: ""
-    type: ""
-quickRunMode: true
-retryOnFailure: true
+---
+version: 0.1
 runson: win
-runtime:
-    language: dotnet
-    version: "6.0"
-sourcePayload:
-    link: https://github.com/go2guy/HyperExecute.git
-    platform: git
-    ref: main
+autosplit: true
+maxRetries: 1
+concurrency: 2
+
+project: SeleniumInterview.csproj
+solution: SeleniumInterview.sln
+
+env:
+  NUGET_PACKAGES: 'C:\nuget_global_cache'
+  NUGET_HTTP_CACHE_PATH: 'C:\nuget_http_cache'
+  NUGET_PLUGINS_CACHE_PATH: 'C:\nuget_plugins_cache'
+
+pre:
+ # https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-list-package
+ - dotnet list $project package > packages.txt
+ - nuget locals all -clear
+ - dotnet build -c Release
+
+mergeArtifacts: true
+
 testDiscovery:
-    mode: dynamic
-    type: raw
-testRunnerCommand: dotnet test SeleniumInterview.sln 
-testSuiteTimeout: 90
-testSuites: []
-triggerMode: false
-unzipPayload: false
-user: ""
-version: "0.1"
-waitForArtefactsUpload: false
+  type: raw
+  mode: dynamic
+
+testRunnerCommand: dotnet test $solution
+
+jobLabel: [selenium-Nunit, win, autosplit-simple]  
