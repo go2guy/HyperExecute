@@ -21,7 +21,7 @@ pre:
 
 testDiscovery:
   type: raw
-  mode: local
+  mode: dynamic
   command: grep 'Category' Tests -ir --include=\*.cs  | awk '{print$2}' | grep -o '".*"'
 
 testRunnerCommand: dotnet test SeleniumInterview.sln --filter TestCategory=$test
@@ -29,4 +29,4 @@ testRunnerCommand: dotnet test SeleniumInterview.sln --filter TestCategory=$test
 retryOnFailure: true
 maxRetries: 1
 
-jobLabel: [selenium-Nunit, win, autosplit]  
+jobLabel: [selenium-Nunit, win]  
