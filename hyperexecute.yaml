@@ -46,6 +46,9 @@ sourcePayload:
     link: https://github.com/go2guy/HyperExecute.git
     platform: git
     ref: main
+testDiscovery:
+    mode: dynamic
+    type: raw
 testRunnerCommand: dotnet test SeleniumInterview.sln 
 testSuiteTimeout: 90
 testSuites: []
