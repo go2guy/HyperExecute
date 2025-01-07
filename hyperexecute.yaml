@@ -25,7 +25,7 @@ testDiscovery:
   mode: dynamic
   command: grep 'Category' Tests -ir --include=\*.cs  | awk '{print$2}' | grep -o '".*"'
 
-testRunnerCommand: dotnet test SeleniumInterview.sln --filter TestCategory=$tests
+testRunnerCommand: dotnet test SeleniumInterview.sln --filter TestCategory=$test
 
 retryOnFailure: true
 maxRetries: 1
