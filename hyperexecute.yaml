@@ -2,7 +2,6 @@
 version: 0.1
 runson: win
 
-autosplit: false
 concurrency: 1
 
 runtime:
@@ -22,7 +21,7 @@ pre:
 
 testDiscovery:
   type: raw
-  mode: dynamic
+  mode: local
   command: grep 'Category' Tests -ir --include=\*.cs  | awk '{print$2}' | grep -o '".*"'
 
 testRunnerCommand: dotnet test SeleniumInterview.sln --filter TestCategory=$test
