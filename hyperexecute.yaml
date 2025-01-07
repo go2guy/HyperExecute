@@ -1,4 +1,4 @@
----
+
 version: 0.1
 runson: win
 autosplit: true
@@ -23,7 +23,7 @@ mergeArtifacts: true
 
 testDiscovery:
   type: raw
-  mode: dynamic
+  mode: local
 
 testRunnerCommand: dotnet test $solution
 
