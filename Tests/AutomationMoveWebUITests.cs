@@ -2,6 +2,7 @@
 
 namespace SeleniumInterview.Tests
 {
+    [Category("SmokeTests")]
     [TestFixture]
     public class AutomationMoveWebUITests : BaseTest
     {
@@ -13,7 +14,6 @@ namespace SeleniumInterview.Tests
             _homePage = new HomePage(Driver);
         }
 
-        [Category("SmokeTests")]
         [Test(Description = "Verify that clicking Home Page Link it takes us to home page"), Order(1)]
         public void TestClickingHomePageLink()
         {
@@ -21,7 +21,6 @@ namespace SeleniumInterview.Tests
             Assert.That(_homePage.GetPageTitle(), Is.EqualTo("Courses"));   
         }
 
-        [Category("SmokeTests")]
         [Test(Description = "Verify checkbox is enabled"), Order(2)]
         public void TestCheckbox()
         {
