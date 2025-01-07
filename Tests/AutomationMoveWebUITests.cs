@@ -13,13 +13,15 @@ namespace SeleniumInterview.Tests
             _homePage = new HomePage(Driver);
         }
 
+        [Category("SmokeTests")]
         [Test(Description = "Verify that clicking Home Page Link it takes us to home page"), Order(1)]
         public void TestClickingHomePageLink()
         {
             _homePage.ClickHomePageLink();
             Assert.That(_homePage.GetPageTitle(), Is.EqualTo("Courses"));   
-        }   
+        }
 
+        [Category("SmokeTests")]
         [Test(Description = "Verify checkbox is enabled"), Order(2)]
         public void TestCheckbox()
         {
