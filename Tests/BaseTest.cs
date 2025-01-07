@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using SeleniumInterview.Base;
 using WebDriverManager.DriverConfigs.Impl;
+using WebDriverManager.Helpers;
 
 namespace SeleniumInterview.Tests
 {
@@ -14,8 +15,7 @@ namespace SeleniumInterview.Tests
         [OneTimeSetUp]
         public void SetUp()
         {
-            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());   
-            //new DriverManager().SetUpDriver(new ChromeConfig());
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);   
             Driver = new ChromeDriver();
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl(_baseUrl);
