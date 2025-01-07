@@ -46,11 +46,7 @@ sourcePayload:
     link: https://github.com/go2guy/HyperExecute.git
     platform: git
     ref: main
-testDiscovery:
-    command: grep 'Category' SeleniumInterview -ir --include=\*.cs --exclude=DriverFactory.cs --exclude=SeleniumInterview.AssemblyInfo.cs | awk '{print$2}' | grep -o '".*"'
-    mode: dynamic
-    type: raw
-testRunnerCommand: dotnet test SeleniumInterview.sln --filter TestCategory=$test
+testRunnerCommand: dotnet test SeleniumInterview.sln 
 testSuiteTimeout: 90
 testSuites: []
 triggerMode: false
