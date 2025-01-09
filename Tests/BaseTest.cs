@@ -26,7 +26,7 @@ namespace SeleniumInterview.Tests
             options.AddArgument("--start-maximized");
             var lt_username = "herb.scruggs";
             var lt_access_key = "dZzoXAahYZcEgODLx6JOnI9qAiNiksiiRNV1Jkxe05qGhl5S8s";
-            var gridURL = "hub.lambdatest.com/wd/hub";
+            var gridURL = "hub.lambdatest.com";
             
             Driver = new RemoteWebDriver(new Uri("https://" + lt_username + ":" + lt_access_key + gridURL),
                             (ICapabilities)options, TimeSpan.FromSeconds(600));
