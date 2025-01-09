@@ -27,9 +27,9 @@ namespace SeleniumInterview.Tests
             var lt_username = "herb.scruggs";
             var lt_access_key = "dZzoXAahYZcEgODLx6JOnI9qAiNiksiiRNV1Jkxe05qGhl5S8s";
             var gridURL = "@hub.lambdatest.com/wd/hub";
-            
+
             Driver = new RemoteWebDriver(new Uri("https://" + lt_username + ":" + lt_access_key + gridURL),
-                            (ICapabilities)options, TimeSpan.FromSeconds(600));
+                            options.ToCapabilities(), TimeSpan.FromSeconds(600));
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl(_baseUrl);
 
